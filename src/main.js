@@ -291,21 +291,6 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-document.addEventListener("keydown", (event) => {
-    if (event.key.toLowerCase() === "f") {
-        const terrain = document.getElementById("terrain"); 
-        if (!document.fullscreenElement) {
-            terrain.requestFullscreen().catch(err => {
-                console.error(`Erreur lors de la tentative de passage en plein écran : ${err.message}`);
-            });
-        } else {
-            document.exitFullscreen().catch(err => {
-                console.error(`Erreur lors de la tentative de sortie du plein écran : ${err.message}`);
-            });
-        }
-    }
-});
-
 // collision entre serpents
 function detecteCollisionSerpents(serpentA, serpentB) {
     let head = serpentA.anneaux[0]; // recupère la tête 
