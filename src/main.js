@@ -395,15 +395,11 @@ function loop() {
 }
 
 document.getElementById("start").addEventListener("click", startGame);
-document.getElementById("stop").addEventListener("click", stopGame);
 document.getElementById("restart").addEventListener("click", restartGame);
 document.addEventListener("keydown", function(event) {
     switch (event.key.toLowerCase()) {
         case "c":
             startGame();
-            break;
-        case "x":
-            stopGame();
             break;
         case "r":
             restartGame();
