@@ -9,3 +9,5 @@ Jeu du serpent développé en JavaScript
 Lancer le projet grâce à Node.js : 
 ```npm install```
 ```npm run dev```
+
+Vous pouvez aussi jouer au jeu sur <a href="https://celico.itch.io/snake">ma page Itch.io</a>
