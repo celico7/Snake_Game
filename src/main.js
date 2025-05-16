@@ -15,6 +15,7 @@ let vitesse = 300; // durée en millisecondes, vitesse de départ
 let gameStarted = false; // Indique si la partie est en cours
 let gameOver = false; // Indique si la partie est terminée
 let gameWon = false; // Indique si la partie est gagnée
+let isPaused = false;
 
 // Fonction pour générer une direction aléatoire
 function getRandomDirection() {
@@ -340,7 +341,7 @@ let loopInterval;
 function loop() {
     clearInterval(loopInterval); // On clear l'ancien intervalle au cas où
     loopInterval = setInterval(() => {
-        if (gameOver || gameWon) {
+        if (gameOver || gameWon || isPaused) {
             clearInterval(loopInterval);
             return;
         }
@@ -393,6 +394,20 @@ function loop() {
 
     }, vitesse);
 }
+
+document.getElementById("pause").addEventListener("click", () => {
+    if (!gameStarted) return;
+
+    isPaused = !isPaused;
+
+    const pauseBtn = document.getElementById("pause");
+    pauseBtn.textContent = isPaused ? "Reprendre" : "Pause";
+
+    // Si on vient de "reprendre", on relance la boucle
+    if (!isPaused) {
+        loop();
+    }
+});
 
 document.getElementById("start").addEventListener("click", startGame);
 document.getElementById("restart").addEventListener("click", restartGame);
